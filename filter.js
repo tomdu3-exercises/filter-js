@@ -61,3 +61,32 @@ const students = [
     ]
   },
 ];
+
+// filter only students with at least 5 years experience in one of the skills
+
+const has5yearsExp = skill => skill.yrsExperience >= 5;
+const hasStrongSkills = student => student.skills.filter(has5yearsExp).length > 0;
+
+// const hasStrongSkills = student => {
+//   let strongSkills = student.skills.filter(has5yearsExp);
+//   return strongSkills.length > 0;
+// };
+
+const candidates = students.filter(hasStrongSkills).map(student => student.name);
+
+
+
+// 2nd way
+// const hasStrongSkills = student => {
+//   let strongSkills = student.skills.filter(skill => skill.yrsExperience >= 5);
+//   return strongSkills.length > 0;
+// };
+
+// const candidates = students.filter(hasStrongSkills)
+
+// 3rd way - shorter
+// const candidates = students.filter(student => {
+//   let strongSkills = student.skills.filter(skill => skill.yrsExperience >= 5);
+//   return strongSkills.length > 0;
+// });
+console.log(candidates)
